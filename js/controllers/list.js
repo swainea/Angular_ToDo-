@@ -7,10 +7,25 @@
 
   ListController.$inject = ['listStore'];
 
-  function ListController (listStore){
+  function ListController(listStore) {
     console.log("listStore is ", listStore);
-  }
 
-    this.todos = listStore.data; 
+    this.todos = listStore.data;
+
+    this.newToDo = "";
+
+    this.save = function saveToDo(form){
+      if (form.$valid){
+        this.todos.push(this.newToDo);
+        console.log("newTodo=" , this.newToDo);
+        console.log("all todos", this.todos);
+        listStore.save(this.todos);
+        this.newToDo = "";
+      } else {
+        // error alert if invalid info
+      }
+
+    };
+  }
 
 }());
