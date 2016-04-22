@@ -36,6 +36,11 @@
         todo.editing = false;
       }
     };
+
+    this.deleteToDo = function deleteToDo (todo){
+      var index = this.todos.indexOf(todo);
+      this.todos.splice(index, 1);
+    };
   }
 
 }());

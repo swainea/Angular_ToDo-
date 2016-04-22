@@ -32,7 +32,7 @@
                         <button class='check' ng-click="todo.complete = !todo.complete"></button>
                         <p ng-click="todo.editing = !todo.editing">{{todo.name}}</p>
                         <input ng-model="todo.name" ng-keyup='lc.editToDo($event, todo)' type='text' class='edit-todo' value='learn html'>
-                        <button class='delete'>X</button>
+                        <button class='delete' ng-click="lc.deleteToDo(todo)">X</button>
                     </article>
                 </li>
 
