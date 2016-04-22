@@ -23,20 +23,19 @@
 
         <main ng-controller="ListController as lc">
             <form name="todos" method='post' ng-submit="lc.save(todos)">
-                <input ng-model="lc.newToDo" type='text' class='new-todo' placeholder='What needs to be done?'>
+                <input ng-model="lc.newToDo.name" type='text' class='new-todo' placeholder='What needs to be done?'>
             </form>
 
             <ul class='items'>
-                <!-- example of existing item (incomplete)
-                <li>
+                <li ng-repeat= "todo in lc.todos">
                     <article>
-                        <button class='check'></button>
-                        <p>learn html</p>
+                        <button class='check' ng-click="isComplete = !isComplete"></button>
+                        <p>{{todo.name}}</p>
                         <input type='text' class='edit-todo' value='learn html'>
                         <button class='delete'>X</button>
                     </article>
                 </li>
-                -->
+
                 <!-- example of completed item
                 <li>
                     <article class='completed'>

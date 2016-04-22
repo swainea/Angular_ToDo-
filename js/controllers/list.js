@@ -12,7 +12,11 @@
 
     this.todos = listStore.data;
 
-    this.newToDo = "";
+    this.newToDo = {
+      name: "",
+      complete: false,
+      editing: false
+    };
 
     this.save = function saveToDo(form){
       if (form.$valid){
@@ -20,7 +24,7 @@
         console.log("newTodo=" , this.newToDo);
         console.log("all todos", this.todos);
         listStore.save(this.todos);
-        this.newToDo = "";
+        this.newToDo = {};
       } else {
         // error alert if invalid info
       }
