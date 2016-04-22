@@ -24,7 +24,6 @@
   function saveToDo (todos){
     console.log('should save', todos);
     localStorage.setItem(localStorageKey, angular.toJson(todos));
-    // will also need something later to store if items have been completed or not
   }
 
 }());

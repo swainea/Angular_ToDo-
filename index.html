@@ -28,10 +28,10 @@
 
             <ul class='items'>
                 <li ng-repeat= "todo in lc.todos">
-                    <article>
-                        <button class='check' ng-click="isComplete = !isComplete"></button>
-                        <p>{{todo.name}}</p>
-                        <input type='text' class='edit-todo' value='learn html'>
+                    <article ng-class="{completed: todo.complete, editing: todo.editing}">
+                        <button class='check' ng-click="todo.complete = !todo.complete"></button>
+                        <p ng-click="todo.editing = !todo.editing">{{todo.name}}</p>
+                        <input ng-model="todo.name" ng-keyup='lc.editToDo($event, todo)' type='text' class='edit-todo' value='learn html'>
                         <button class='delete'>X</button>
                     </article>
                 </li>
