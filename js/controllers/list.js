@@ -40,6 +40,7 @@
     this.deleteToDo = function deleteToDo (todo){
       var index = this.todos.indexOf(todo);
       this.todos.splice(index, 1);
+      listStore.save(this.todos);
     };
   }
 

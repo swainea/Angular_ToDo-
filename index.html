@@ -62,7 +62,7 @@
                 <p class='remaining'><span class='incomplete-items'>0</span> items left</p>
                 <nav>
                     <ul>
-                        <li><button class='show-all active'>All</button></li>
+                        <li ng-class="{'active' : show == 'All' }" ng-click="show='All'"><button class='show-all active'>All</button></li>
                         <li><button class='show-active'>Active</button></li>
                         <li><button class='show-completed'>Completed</button></li>
                     </ul>
