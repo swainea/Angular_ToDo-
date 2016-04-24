@@ -27,7 +27,7 @@
             </form>
 
             <ul class='items'>
-                <li ng-repeat= "todo in lc.todos">
+                <li ng-repeat= "todo in lc.todos | filter: lc.buttonFilter" >
                     <article ng-class="{completed: todo.complete, editing: todo.editing}">
                         <button class='check' ng-click="todo.complete = !todo.complete"></button>
                         <p ng-click="todo.editing = !todo.editing">{{todo.name}}</p>
@@ -62,9 +62,9 @@
                 <p class='remaining'><span class='incomplete-items'>0</span> items left</p>
                 <nav>
                     <ul>
-                        <li ng-class="{'active' : show == 'All' }" ng-click="show='All'"><button class='show-all active'>All</button></li>
-                        <li><button class='show-active'>Active</button></li>
-                        <li><button class='show-completed'>Completed</button></li>
+                      <li><button class='show-all active' ng-class="{ active: lc.allActive }" ng-click="lc.showAll()">All</button></li>
+                      <li><button class='show-active' ng-class="{ active: lc.activeActive }" ng-click="lc.showActive()">Active</button></li>
+                      <li><button class='show-completed' ng-class="{ active: lc.activeCompleted }" ng-click="lc.showCompleted()">Completed</button></li>
                     </ul>
                 </nav>
                 <button class='clear'>Clear completed</button>

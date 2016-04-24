@@ -42,6 +42,36 @@
       this.todos.splice(index, 1);
       listStore.save(this.todos);
     };
+
+    this.allActive = true;
+    this.activeActive = false;
+    this.activeCompleted= false;
+
+    this.show = function showAll() {
+      this.allActive = true;
+      this.activeActive = false;
+      this.activeCompleted = false;
+      this.buttonFilter = false;
+    };
+
+    this.showActive = function showActive() {
+      this.allActive = false;
+      this.activeActive = true;
+      this.activeCompleted = false;
+      this.buttonFilter = {complete: false};
+    };
+
+    this.showCompleted = function showCompleted() {
+      this.allActive = false;
+      this.activeActive = false;
+      this.activeCompleted = true;
+      this.buttonFilter = {complete: true};
+    };
   }
 
+  // this.clearComplete = function clearComplete (todo){
+  //   var index = this.todos.indexOf(todo);
+  //   this.todos.splice(index, 1);
+  //   listStore.save(this.todos);
+  // };
 }());

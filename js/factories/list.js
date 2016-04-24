@@ -24,7 +24,6 @@
   function saveToDo (todos){
     console.log('should save', todos);
     localStorage.setItem(localStorageKey, angular.toJson(todos));
-    //remove items from local storage after they are deleted
   }
 
 }());
