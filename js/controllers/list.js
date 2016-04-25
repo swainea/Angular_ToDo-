@@ -70,5 +70,15 @@
          }
        });
     };
+
+    this.itemsLeft = function itemsLeft(){
+      var items = 0;
+      this.todos.forEach( function itemsCount (todo){
+        if(!todo.complete){
+          items ++;
+        }
+      });
+        return items;
+    };
   }
 }());
