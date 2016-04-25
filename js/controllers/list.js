@@ -30,7 +30,7 @@
           editing: false
         };
       } else {
-        // error alert if invalid info
+        console.log("new todo not saved");
       }
 
     };
@@ -61,9 +61,9 @@
 
     this.clearCompleted = function clearCompleted() {
       var that = this;
-       console.log("this.todos is", this.todos);
+      //  console.log("this.todos is", this.todos);
        this.todos.forEach(function clearComplete(todo, i ){
-         console.log("that.todos is", that.todos);
+        //  console.log("that.todos is", that.todos);
          if (todo.complete){
            that.todos.splice(i, 1);
             listStore.save(that.todos);
