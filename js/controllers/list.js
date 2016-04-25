@@ -24,7 +24,11 @@
         // console.log("newTodo=" , this.newToDo);
         // console.log("all todos", this.todos);
         listStore.save(this.todos);
-        this.newToDo = {};
+        this.newToDo = {
+          name: "",
+          complete: false,
+          editing: false
+        };
       } else {
         // error alert if invalid info
       }
@@ -43,35 +47,26 @@
       listStore.save(this.todos);
     };
 
-    this.allActive = true;
-    this.activeActive = false;
-    this.activeCompleted= false;
 
-    this.show = function showAll() {
-      this.allActive = true;
-      this.activeActive = false;
-      this.activeCompleted = false;
+    this.showAll = function showAll() {
       this.buttonFilter = false;
     };
 
     this.showActive = function showActive() {
-      this.allActive = false;
-      this.activeActive = true;
-      this.activeCompleted = false;
       this.buttonFilter = {complete: false};
     };
 
     this.showCompleted = function showCompleted() {
-      this.allActive = false;
-      this.activeActive = false;
-      this.activeCompleted = true;
       this.buttonFilter = {complete: true};
     };
-  }
 
-  // this.clearComplete = function clearComplete (todo){
-  //   var index = this.todos.indexOf(todo);
-  //   this.todos.splice(index, 1);
-  //   listStore.save(this.todos);
-  // };
+    this.clearCompleted = function clearCompleted() {
+      var that = this;
+       this.todos.forEach(function clearComplete(todo, i ){
+         if (todo.complete){
+           that.todos.splice(i, 1);
+         }
+       });
+    };
+  }
 }());

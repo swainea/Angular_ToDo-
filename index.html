@@ -62,12 +62,12 @@
                 <p class='remaining'><span class='incomplete-items'>0</span> items left</p>
                 <nav>
                     <ul>
-                      <li><button class='show-all active' ng-class="{ active: lc.allActive }" ng-click="lc.showAll()">All</button></li>
-                      <li><button class='show-active' ng-class="{ active: lc.activeActive }" ng-click="lc.showActive()">Active</button></li>
-                      <li><button class='show-completed' ng-class="{ active: lc.activeCompleted }" ng-click="lc.showCompleted()">Completed</button></li>
+                      <li><button class='show-all active' ng-click="lc.showAll()">All</button></li>
+                      <li><button class='show-active' ng-click="lc.showActive()">Active</button></li>
+                      <li><button class='show-completed' ng-click="lc.showCompleted()">Completed</button></li>
                     </ul>
                 </nav>
-                <button class='clear'>Clear completed</button>
+                <button class='clear' ng-click="lc.clearCompleted()">Clear completed</button>
             </footer>
         </main>
 
