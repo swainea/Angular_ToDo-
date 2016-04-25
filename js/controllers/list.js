@@ -59,16 +59,14 @@
       this.buttonFilter = {complete: true};
     };
 
-    this.clearCompleted = function clearCompleted() {
-      var that = this;
-      //  console.log("this.todos is", this.todos);
-       this.todos.forEach(function clearComplete(todo, i ){
-        //  console.log("that.todos is", that.todos);
-         if (todo.complete){
-           that.todos.splice(i, 1);
-            listStore.save(that.todos);
-         }
-       });
+    this.clearCompleted = function clearCompleted(){
+      var i;
+      for (i = this.todos.length - 1; i >= 0; i -= 1) {
+        if (this.todos[i].complete) {
+        this.todos.splice(i, 1);
+        listStore.save(this.todos);
+        }
+      }
     };
 
     this.itemsLeft = function itemsLeft(){
